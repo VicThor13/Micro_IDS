@@ -2,7 +2,7 @@ import socket
 from datetime import datetime, timedelta
 import os
 
-# Importations de la bibliothèque Rich pour le design de la console
+# Rich design
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
@@ -15,9 +15,9 @@ PORT = 8080
 MAX_ATTEMPTS = 5
 TIME_WINDOW_SECONDS = 10
 
-# Mémoire du script
+# Script Memory
 ip_history = {}
-recent_events = [] # Liste pour stocker les derniers logs à afficher
+recent_events = [] # Liste for mos recent logs
 console = Console()
 
 def check_brute_force(ip):
@@ -49,7 +49,7 @@ def generate_dashboard():
     """
     Génère l'interface graphique du Dashboard à l'aide de Rich
     """
-    # 1. Création du tableau des événements récents
+    # 1. Dashboard
     table = Table(title="📊 Flux de Trafic en Direct", expand=True)
     table.add_column("Horodatage", justify="center", style="cyan", no_wrap=True)
     table.add_column("Source", justify="center", style="magenta")
@@ -59,7 +59,7 @@ def generate_dashboard():
     last_alert = "Aucune alerte critique pour le moment."
     alert_style = "green"
 
-    # On peuple le tableau avec les 10 derniers événements
+    # Displays the last 10 events
     for event in recent_events[-10:]:
         timestamp, src, status, msg = event
         
@@ -70,14 +70,14 @@ def generate_dashboard():
         elif status == "WARNING":
             status_render = "[bold orange3]WARNING[/bold orange3]"
             last_alert = f"⚠️ COMPORTEMENT SUSPECT : {msg}"
-            if alert_style != "bold red": # Ne pas écraser une alerte critique
+            if alert_style != "bold red": # dont overwrite on a crtic alert
                 alert_style = "bold orange3"
         else:
             status_render = "[green]INFO[/green]"
 
         table.add_row(timestamp, src, status_render, msg)
 
-    # 2. Layout global : Le tableau en haut, le bandeau d'alerte en bas
+    # 2. global Layout
     layout = Layout()
     layout.split_column(
         Layout(Panel(table, border_style="blue")),
@@ -91,11 +91,11 @@ def start_ids():
         s.bind((HOST, PORT))
         s.listen()
         
-        # Efface le terminal pour un affichage propre
+        # Erase existing terminal
         os.system('cls' if os.name == 'nt' else 'clear')
         console.print(Panel.fit("[bold r]🛡️ MICRO-IDS & SOC DASHBOARD EN ÉCOUTE[/bold r]", border_style="red"))
         
-        # Utilisation de Live pour mettre à jour la console en temps réel sans clignotement
+        # real-time display
         with Live(generate_dashboard(), refresh_per_second=2) as live:
             while True:
                 conn, addr = s.accept()
@@ -114,7 +114,7 @@ def start_ids():
                     is_brute_forcing = check_brute_force(client_ip)
                     status, message = inspect_payload(payload)
                     
-                    # Logique d'enregistrement de l'événement
+                    # Event registering logic
                     if is_brute_forcing:
                         event_data = (timestamp, client_ip, "WARNING", f"Brute-force détecté ({len(ip_history[client_ip])} req/{TIME_WINDOW_SECONDS}s)")
                     elif status == "CRITICAL":
@@ -124,10 +124,10 @@ def start_ids():
                     else:
                         event_data = (timestamp, f"{client_ip}:{addr[1]}", "INFO", f"Requête standard : {first_line}")
                     
-                    # Ajout à notre liste locale
+                    # Local list adding
                     recent_events.append(event_data)
                     
-                    # Met à jour le visuel de la console
+                    # Console update
                     live.update(generate_dashboard())
                     
                     response = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nEvenement traite."
