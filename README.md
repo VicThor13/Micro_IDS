@@ -52,8 +52,9 @@ curl.exe -s [http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)
 curl.exe -s "[http://127.0.0.1:8080/download?file=../../../../etc/passwd](http://127.0.0.1:8080/download?file=../../../../etc/passwd)"
 
 # Test 3: Brute-Force Attack (Orange Warning)
-for ($i=1; $i -le 7; $i++) { curl.exe -s [http://127.0.0.1:8080/test](http://127.0.0.1:8080/test) }
+for ($i=1; $i -le 7; $i++) { curl.exe -s [http://127.0.0.1:8080/test](http://127.0.0.1:8080/test) }dependencies
 
+```
 
 🧠 Cyber Skills Validated by this Project
  Network Programming: Handling TCP sockets in Python.
