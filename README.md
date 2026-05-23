@@ -57,8 +57,9 @@ for ($i=1; $i -le 7; $i++) { curl.exe -s [http://127.0.0.1:8080/test](http://127
 ```
 
 🧠 Cyber Skills Validated by this Project
- Network Programming: Handling TCP sockets in Python.
- Detection Engineering: Creating payload inspection rules and time-based correlation logic.
- False Positive Reduction: Setting up threshold baselines to differentiate between human error and malicious brute-forcing.
- SOC Visualization: Designing a clear monitoring dashboard prioritized by event severity.
+
+- Network Programming: Handling TCP sockets in Python.
+- Detection Engineering: Creating payload inspection rules and time-based correlation logic.
+- False Positive Reduction: Setting up threshold baselines to differentiate between human error and malicious brute-forcing.
+- SOC Visualization: Designing a clear monitoring dashboard prioritized by event severity.
 
