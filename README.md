@@ -23,7 +23,8 @@ The project is structured around two main detection engines:
 The interface leverages the `Rich` library to render a dynamic, clean, and interactive console layout tailored for security operators.
 
 * **Live Traffic Feed and Real-Time Alerts:**
-  ![Dashboard SOC](dashboard.png)
+ <img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/5fb63019-3b1e-4e09-a971-960432c2c5fc" />
+
 
 ---
 
