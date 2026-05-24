@@ -53,7 +53,7 @@ curl.exe -s [http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)
 curl.exe -s "[http://127.0.0.1:8080/download?file=../../../../etc/passwd](http://127.0.0.1:8080/download?file=../../../../etc/passwd)"
 
 # Test 3: Brute-Force Attack (Orange Warning)
-for ($i=1; $i -le 7; $i++) { curl.exe -s [http://127.0.0.1:8080/test](http://127.0.0.1:8080/test) }dependencies
+for ($i=1; $i -le 7; $i++) { curl.exe -s [http://127.0.0.1:8080/test](http://127.0.0.1:8080/test) }
 
 ```
 
