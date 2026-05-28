@@ -36,7 +36,8 @@ The interface leverages the `Rich` library to render a dynamic, clean, and inter
 ### Terminal 1: Setup & Launch
 Run these commands in your first PowerShell window to clone the project, install the required packages, and start the IDS server:
 ```powershell
-git clone ("https://" + "[github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)")
+$url = "https://github_com/VicThor13/Micro_IDS.git"
+git clone $url.Replace("_", ".")
 cd Micro_IDS
 pip install -r requirements.txt
 python micro_ids.py
@@ -45,9 +46,10 @@ python micro_ids.py
 ### Terminal 2: Attack Simulation
 Once the server is up and running in Terminal 1, **open a second PowerShell window** and copy-paste these commands to trigger the detection engines:
 ```powershell
-curl.exe -s "[http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)"
-curl.exe -s "[http://127.0.0.1:8080/download?file=../../../../etc/passwd](http://127.0.0.1:8080/download?file=../../../../etc/passwd)"
-for ($i=1; $i -le 7; $i++) { curl.exe -s "[http://127.0.0.1:8080/test](http://127.0.0.1:8080/test)" }
+$t = "localhost:8080"
+curl.exe -s "$t/accueil"
+curl.exe -s "$t/download?file=../../../../etc/passwd"
+for ($i=1; $i -le 7; $i++) { curl.exe -s "$t/test" }
 ```
 
 ---
@@ -61,7 +63,8 @@ for ($i=1; $i -le 7; $i++) { curl.exe -s "[http://127.0.0.1:8080/test](http://12
 ### Terminal 1: Setup & Launch
 Run these commands in your first terminal window to clone the project, install the required packages, and start the IDS server:
 ```bash
-git clone "https://"[github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
+URL="https://github_com/VicThor13/Micro_IDS.git"
+git clone "${URL/_/.}"
 cd Micro_IDS
 pip install --break-system-packages -r requirements.txt
 python3 micro_ids.py
@@ -70,9 +73,10 @@ python3 micro_ids.py
 ### Terminal 2: Attack Simulation
 Once the server is up and running in Terminal 1, **open a second terminal window** and copy-paste these commands to trigger the detection engines:
 ```bash
-curl -s "[http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)"
-curl -s "[http://127.0.0.1:8080/download?file=../../../../etc/passwd](http://127.0.0.1:8080/download?file=../../../../etc/passwd)"
-for i in {1..7}; do curl -s "[http://127.0.0.1:8080/test](http://127.0.0.1:8080/test)"; done
+T="localhost:8080"
+curl -s "$T/accueil"
+curl -s "$T/download?file=../../../../etc/passwd"
+for i in {1..7}; do curl -s "$T/test"; done
 ```
 
 ---
