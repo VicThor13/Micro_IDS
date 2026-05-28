@@ -49,15 +49,13 @@ for ($i=1; $i -le 7; $i++) { curl.exe -s "[http://127.0.0.1:8080/test](http://12
 ## 🐧 Linux Installation, Usage & Attack Simulation (Bash)
 
 ### Prerequisites
-- Python 3.x & python3-venv
+- Python 3.x
 - Linux Terminal (Bash)
 
 ```bash
 git clone [https://github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
 cd Micro_IDS
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+pip install --break-system-packages -r requirements.txt
 python3 micro_ids.py &
 sleep 2
 curl -s "[http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)"
