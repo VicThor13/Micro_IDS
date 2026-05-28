@@ -49,7 +49,7 @@ for ($i=1; $i -le 7; $i++) { curl.exe -s "[http://127.0.0.1:8080/test](http://12
 ## 🐧 Linux Installation, Usage & Attack Simulation (Bash)
 
 ### Prerequisites
-- Python 3.x
+- Python 3.x & Git
 - Linux Terminal (Bash)
 
 ```bash
