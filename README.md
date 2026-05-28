@@ -27,17 +27,49 @@ The interface leverages the `Rich` library to render a dynamic, clean, and inter
 
 ---
 
-## 🛠️ Installation, Usage & Attack Simulation
+## 🛠️ Windows Installation, Usage & Attack Simulation (PowerShell)
 
 ### Prerequisites
 - Python 3.x
-- A terminal (PowerShell, CMD, or Linux Terminal)
+- Windows PowerShell
 
 ```powershell
 git clone [https://github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
 cd Micro_IDS
 pip install -r requirements.txt
-python micro_ids.py
+Start-Process python "micro_ids.py"
+Start-Sleep -s 2
 curl.exe -s "[http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)"
 curl.exe -s "[http://127.0.0.1:8080/download?file=../../../../etc/passwd](http://127.0.0.1:8080/download?file=../../../../etc/passwd)"
 for ($i=1; $i -le 7; $i++) { curl.exe -s "[http://127.0.0.1:8080/test](http://127.0.0.1:8080/test)" }
+```
+
+---
+
+## 🐧 Linux Installation, Usage & Attack Simulation (Bash)
+
+### Prerequisites
+- Python 3.x & python3-venv
+- Linux Terminal (Bash)
+
+```bash
+git clone [https://github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
+cd Micro_IDS
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 micro_ids.py &
+sleep 2
+curl -s "[http://127.0.0.1:8080/accueil](http://127.0.0.1:8080/accueil)"
+curl -s "[http://127.0.0.1:8080/download?file=../../../../etc/passwd](http://127.0.0.1:8080/download?file=../../../../etc/passwd)"
+for i in {1..7}; do curl -s "[http://127.0.0.1:8080/test](http://127.0.0.1:8080/test)"; done
+```
+
+---
+
+## 🧠 Cyber Skills Validated by this Project
+
+* **Network Programming:** Handling TCP sockets in Python.
+* **Detection Engineering:** Creating payload inspection rules and time-based correlation logic.
+* **False Positive Reduction:** Setting up threshold baselines to differentiate between human error and malicious brute-forcing.
+* **SOC Visualization:** Designing a clear monitoring dashboard prioritized by event severity.
