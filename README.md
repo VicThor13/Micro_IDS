@@ -36,7 +36,7 @@ The interface leverages the `Rich` library to render a dynamic, clean, and inter
 ### Terminal 1: Setup & Launch
 Run these commands in your first PowerShell window to clone the project, install the required packages, and start the IDS server:
 ```powershell
-git clone [https://github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
+git clone ("https://" + "[github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)")
 cd Micro_IDS
 pip install -r requirements.txt
 python micro_ids.py
@@ -61,7 +61,7 @@ for ($i=1; $i -le 7; $i++) { curl.exe -s "[http://127.0.0.1:8080/test](http://12
 ### Terminal 1: Setup & Launch
 Run these commands in your first terminal window to clone the project, install the required packages, and start the IDS server:
 ```bash
-git clone [https://github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
+git clone "https://"[github.com/VicThor13/Micro_IDS.git](https://github.com/VicThor13/Micro_IDS.git)
 cd Micro_IDS
 pip install --break-system-packages -r requirements.txt
 python3 micro_ids.py
